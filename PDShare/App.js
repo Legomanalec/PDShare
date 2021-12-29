@@ -1,10 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+//npx react-native start
+//npx react-native run-ios
+
+//xed ios ##opens project in xcode
 
  import React from 'react';
  import type {Node} from 'react';
