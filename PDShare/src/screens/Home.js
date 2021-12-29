@@ -14,6 +14,16 @@ export default function Home ({navigation}) {
           color="green"
           onPress={() => navigation.navigate('List')}
         />
+        <Button
+          title="Add a PDF"
+          color="red"
+          onPress={() => navigation.navigate('AddPDF')}
+        />
+        <Button
+          title="View PDFs"
+          color="yellow"
+          onPress={() => navigation.navigate('ListPDF')}
+        />
       </View>
     );
   }

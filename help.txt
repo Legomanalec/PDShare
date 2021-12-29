@@ -17,3 +17,9 @@ https://stackoverflow.com/questions/29108172/how-do-i-fix-the-xcrun-unable-to-fi
 https://www.freecodecamp.org/news/react-native-firebase-tutorial/
 
 https://blog.jscrambler.com/integrating-firebase-with-react-native
+
+https://aboutreact.com/react-native-firebase-cloud-storage/
+
+https://stackoverflow.com/questions/45988103/rctbridge-required-dispatch-sync-to-load-rctdevloadingview-this-may-lead-to-dea
+
+https://github.com/rnmods/react-native-document-picker/issues/498

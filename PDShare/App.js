@@ -13,6 +13,8 @@ import Home from './src/screens/Home';
 // we will use these two screens later in the Navigator
 import AddItem from './src/screens/AddItem';
 import List from './src/screens/List';
+import AddPDF from './src/screens/AddPDF';
+import ListPDF from './src/screens/ListPDF';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +25,8 @@ function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="AddItem" component={AddItem} />
         <Stack.Screen name="List" component={List} />
+        <Stack.Screen name="AddPDF" component={AddPDF} />
+        <Stack.Screen name="ListPDF" component={ListPDF} />
       </Stack.Navigator>
     </NavigationContainer>
   );
