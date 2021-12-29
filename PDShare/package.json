@@ -10,12 +10,22 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.11",
     "@react-native-firebase/app": "^14.1.0",
+    "@react-native-firebase/database": "^14.1.0",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/stack": "^6.0.11",
+    "base-64": "^1.0.0",
     "fbjs": "^3.0.2",
     "react": "17.0.2",
     "react-native": "0.66.4",
     "react-native-blob-util": "^0.13.18",
-    "react-native-pdf": "^6.4.0"
+    "react-native-gesture-handler": "^2.1.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-pdf": "^6.4.0",
+    "react-native-reanimated": "^2.3.1",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.10.1"
   },
   "devDependencies": {
     "@babel/core": "7.16.5",

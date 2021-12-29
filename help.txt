@@ -5,3 +5,15 @@ https://stackoverflow.com/questions/44396215/cocoapods-not-working-in-macos-high
 https://reactnative.dev/docs/environment-setup
 
 https://stackoverflow.com/questions/32631184/the-resource-could-not-be-loaded-because-the-app-transport-security-policy-requi
+
+https://rnfirebase.io/
+
+https://stackoverflow.com/questions/27768420/gem-installation-error-you-have-to-install-development-tools-first
+
+https://medium.com/timeless/integrating-firebase-with-react-native-in-m1-mac-
+
+https://stackoverflow.com/questions/29108172/how-do-i-fix-the-xcrun-unable-to-find-simctl-error
+
+https://www.freecodecamp.org/news/react-native-firebase-tutorial/
+
+https://blog.jscrambler.com/integrating-firebase-with-react-native
