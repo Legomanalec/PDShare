@@ -13,9 +13,13 @@ import {
   ActivityIndicator,
   FlatList,
   Linking,
+  Dimensions
 } from "react-native";
 
 import storage from "@react-native-firebase/storage";
+
+import Pdf from 'react-native-pdf';
+
 const ListPDF = () => {
   // State Defination
   const [listData, setListData] = useState([]);
@@ -44,6 +48,8 @@ const ListPDF = () => {
   };
 
   const ItemView = ({ item }) => {
+    const source = { uri: item.uri, cache: true };
+    
     return (
       // FlatList Item
       <View style={{ padding: 10 }}>
@@ -62,6 +68,7 @@ const ListPDF = () => {
           browser
         </Text>
       </View>
+      
     );
   };
 
@@ -85,6 +92,7 @@ const ListPDF = () => {
       .catch((e) => {
         console.error(e);
       });
+
     Linking.openURL(url);
     console.log(url);
   };
@@ -142,4 +150,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "grey",
   },
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 25,
+  },
+    pdf: {
+    flex:1,
+    width:Dimensions.get('window').width,
+    height:Dimensions.get('window').height,
+  }
 });
