@@ -24,6 +24,7 @@ const ListPDF = () => {
   // State Defination
   const [listData, setListData] = useState([]);
   const [loading, setLoading] = useState(true);
+  let url = "https://www.soundczech.cz/temp/lorem-ipsum.pdf"
 
   useEffect(() => {
     listFilesAndDirectories("");
@@ -32,9 +33,6 @@ const ListPDF = () => {
   const listFilesAndDirectories = (pageToken) => {
     const reference = storage().ref("myfiles");
     reference.list({ pageToken }).then((result) => {
-      result.items.forEach((ref) => {
-        console.log("ref  ->>  ", JSON.stringify(ref));
-      });
 
       if (result.nextPageToken) {
         return listFilesAndDirectories(
@@ -43,33 +41,35 @@ const ListPDF = () => {
         );
       }
       setListData(result.items);
-      setLoading(false);
+      //getItem();
+      //console.log(url);
+      //setLoading(false);
     });
   };
 
   const ItemView = ({ item }) => {
-    const source = { uri: item.uri, cache: true };
-    
+      url = getItem(item.fullPath);
+      console.log(url);
     return (
       // FlatList Item
-      <View style={{ padding: 10 }}>
-        <Text
-          style={styles.item}
-          onPress={() => getItem(item.fullPath)}
-        >
-          File Name: {item.name}
-          {"\n"}
-          File Full Path: {item.fullPath}
-          {"\n"}
-          Bucket: {item.bucket}
-        </Text>
-        <Text style={{ color: "red" }}>
-          Click to generate Signed URL and Open it in
-          browser
-        </Text>
-      </View>
-      
+        <View style={{ padding: 10 }}>
+            <Pdf
+                source={{uri: url, cache: true}}
+                style={styles.pdf}/>
+        </View>
     );
+  };
+
+  
+  const getItem = async (fullPath) => {
+    const url = await storage()
+      .ref(fullPath)
+      .getDownloadURL()
+      .catch((e) => {
+        console.error(e);
+      });
+      return await url
+      
   };
 
   const ItemSeparatorView = () => {
@@ -83,18 +83,6 @@ const ListPDF = () => {
         }}
       />
     );
-  };
-
-  const getItem = async (fullPath) => {
-    const url = await storage()
-      .ref(fullPath)
-      .getDownloadURL()
-      .catch((e) => {
-        console.error(e);
-      });
-
-    Linking.openURL(url);
-    console.log(url);
   };
 
   return (
