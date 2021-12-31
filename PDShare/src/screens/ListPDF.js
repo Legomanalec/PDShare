@@ -43,7 +43,7 @@ const ListPDF = () => {
       setListData(result.items);
       //getItem();
       //console.log(url);
-      //setLoading(false);
+      setLoading(false);
     });
   };
 
