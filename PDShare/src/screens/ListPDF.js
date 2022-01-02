@@ -21,8 +21,8 @@ class ListPDF extends Component {
     {
         loading: true,
         mounted: true,
-        image: "/images/logoblue.jpg",
         url: "",
+        inurl: "",
     }
  }
 
@@ -30,7 +30,7 @@ class ListPDF extends Component {
 
     if (this.state.mounted == true) {
 
-      
+      console.log(this.props.url);
       storage()
       .ref("myfiles/information-technology-project-management-9thnbsped_compress.pdf")
       .getDownloadURL()
@@ -56,13 +56,14 @@ class ListPDF extends Component {
   render() {
     if (this.state.mounted == true) {
       if (this.state.loading == true) {
+        
         return (
-          <Text>NOT loaded</Text>
+             <Text>LOADING</Text>
+
         )
       }
 
       else {
-        console.log(this.state.url);
         return (
           <View style={styles.container}>
           <Pdf source={ {uri: this.state.url, cache: true}} style={styles.pdf}/>
