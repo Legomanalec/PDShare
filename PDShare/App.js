@@ -17,8 +17,8 @@ import AddPDF from './src/screens/AddPDF';
 import ListPDF from './src/screens/ListPDF';
 
 const Stack = createStackNavigator();
-
 function App() {
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
