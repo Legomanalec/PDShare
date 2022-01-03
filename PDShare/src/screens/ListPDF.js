@@ -1,14 +1,12 @@
 
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 
-// Import all the components we are going to use
 import {
   Text,
   View,
+  StyleSheet,
+  Dimensions
 } from "react-native";
-
-import { StyleSheet, Dimensions } from 'react-native';
-
 
 import storage from "@react-native-firebase/storage";
 
@@ -22,42 +20,41 @@ class ListPDF extends Component {
         loading: true,
         mounted: true,
         url: "",
-        inurl: "",
+        ref: this.props.refParentToChild
     }
- }
+    this.state.inurl = props.url;
+  }
 
-  async getAndLoadHttpUrl() {
+  async getAndLoadHttpUrl(ref) {
 
     if (this.state.mounted == true) {
-
-      console.log(this.props.url);
       storage()
-      .ref("myfiles/information-technology-project-management-9thnbsped_compress.pdf")
+      .ref(ref)
       .getDownloadURL()
       .then(data => {
          this.setState({ url: data })
          this.setState({ loading: false })
       })
-   }
- }
-
+    }
+  }
 
   componentDidMount() {
   this.setState({ isMounted: true })
-   this.getAndLoadHttpUrl()
+  this.getAndLoadHttpUrl(this.state.ref)
 
   }
 
   componentWillUnmount() {
     this.setState({ isMounted: false })
- }
+  }
 
 
   render() {
     if (this.state.mounted == true) {
       if (this.state.loading == true) {
-        
+
         return (
+             
              <Text>LOADING</Text>
 
         )
@@ -72,9 +69,9 @@ class ListPDF extends Component {
         }
 
     }
-  else {
+    else {
       return null
-  }  
+    }  
   }
 }
 

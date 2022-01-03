@@ -11,10 +11,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from './src/screens/Home';
 
 // we will use these two screens later in the Navigator
-import AddItem from './src/screens/AddItem';
-import List from './src/screens/List';
 import AddPDF from './src/screens/AddPDF';
 import ListPDF from './src/screens/ListPDF';
+import ListAllPDF from './src/screens/ListAllPDF';
 
 const Stack = createStackNavigator();
 function App() {
@@ -23,10 +22,9 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="AddItem" component={AddItem} />
-        <Stack.Screen name="List" component={List} />
         <Stack.Screen name="AddPDF" component={AddPDF} />
         <Stack.Screen name="ListPDF" component={ListPDF} />
+        <Stack.Screen name="ListAllPDF" component={ListAllPDF} />
       </Stack.Navigator>
     </NavigationContainer>
   );

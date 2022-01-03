@@ -1,21 +1,47 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { Component } from "react";
 import ListPDF from './ListPDF';
-// Import all the components we are going to use
-import {
-  Text,
-  View,
-} from "react-native";
-  
+import storage from '@react-native-firebase/storage';
 
 
 class ListAllPDF extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+        ref: 'myfiles/information-technology-project-management-9thnbsped_compress.pdf'
+    }
+  }
+
+
   render() {
-      const url = 'myfiles/information-technology-project-management-9thnbsped_compress.pdf'
+
+    function listFilesAndDirectories(reference, pageToken) {
+      return reference.list({ pageToken }).then(result => {
+        // Loop over each item
+        result.items.forEach(ref => {
+          console.log(ref.fullPath);
+        });
+    
+        if (result.nextPageToken) {
+          return listFilesAndDirectories(reference, result.nextPageToken);
+        }
+    
+        return Promise.resolve();
+      });
+    }
+
+    const reference = storage().ref('myfiles');
+
+    listFilesAndDirectories(reference).then(() => {
+      console.log('Finished listing');
+    });
+
+    const {ref} = this.state;
       return(
-        <ListPDF url={url}/>
+        <ListPDF refParentToChild={'myfiles/information-technology-project-management-9thnbsped_compress.pdf'}/>
       )
   }
 }
 
-export default ListPDF;
+export default ListAllPDF;
 
