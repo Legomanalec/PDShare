@@ -1,4 +1,7 @@
 
+//<ListPDF refParentToChild={'myfiles/SamplePDF.pdf'}/>
+
+
 import React, { Component } from "react";
 
 import {
@@ -53,10 +56,8 @@ class ListPDF extends Component {
     if (this.state.mounted == true) {
       if (this.state.loading == true) {
 
-        return (
-             
-             <Text>LOADING</Text>
-
+        return (           
+            <Text>LOADING</Text>
         )
       }
 
