@@ -2,11 +2,13 @@
 
 
 
-import React, { Component } from "react";
-import ListPDF from './ListPDF';
+import React, { TouchableOpacity } from "react";
+import ViewPDF from './ViewPDF';
 import storage from '@react-native-firebase/storage';
 
 import { useState, useEffect } from "react";
+
+import styles from '../styles/BasicStyles.js';
 
 // Import all the components we are going to use
 import {
@@ -45,69 +47,43 @@ const ListAllPDF = () => {
 
   const ItemView = ({ item }) => {
     return (
-      // FlatList Item
-      <View style={{ padding: 10 }}>
-        <Text
-          style={styles.item}
-          onPress={() => RenderPDF(item.fullPath)}
-        >
-          File Name: {item.name}
-          {"\n"}
-          File Full Path: {item.fullPath}
-          {"\n"}
-          Bucket: {item.bucket}
-        </Text>
-        <Text style={{ color: "red" }}>
-          Click to generate Signed URL and Open it in
-          browser
-        </Text>
-      </View>
+
+        <View
+            activeOpacity={0.5}
+            style={styles.buttonStyle}
+            onPress={() => RenderPDF(item.fullPath)}
+          >
+            <Text style={styles.buttonTextStyle}>
+            {item.name}
+            </Text>
+          </View>
     );
   };
 
-  const ViewPDF = (ref) => {
+  const StartPDF = (ref) => {
     return(
-      <ListPDF refParentToChild={ref}/>
+      <ViewPDF refParentToChild={ref}/>
     )
   }
 
   const RenderPDF = (ref) => {
-    ViewPDF(ref);
+    StartPDF(ref);
     console.log(ref);
     setLoading(true);
     setLoading(false);
   }
-  const ItemSeparatorView = () => {
-    return (
-      // FlatList Item Separator
-      <View
-        style={{
-          height: 0.5,
-          width: "100%",
-          backgroundColor: "#C8C8C8",
-        }}
-      />
-    );
-  };
 
 
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.titleText}>
-        Listing of Files from Cloud Storage
-      </Text>
       {loading ? (
-        <View style={styles.container}>
-          
+        <View style={styles.container}>  
           <ActivityIndicator size="large" color="#0000ff" />
         </View>
       ) : (
         <FlatList
           data={listData}
-          //data defined in constructor
-          ItemSeparatorComponent={ItemSeparatorView}
-          //Item Separator View
           renderItem={ItemView}
           keyExtractor={(item, index) => index.toString()}
         />
@@ -118,27 +94,4 @@ const ListAllPDF = () => {
 
 export default ListAllPDF;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    padding: 10,
-  },
-  titleText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-    padding: 20,
-  },
-  footerHeading: {
-    fontSize: 18,
-    textAlign: "center",
-    color: "grey",
-  },
-  footerText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "grey",
-  },
-});
 

@@ -15,7 +15,7 @@ import storage from "@react-native-firebase/storage";
 
 import Pdf from 'react-native-pdf';
 
-class ListPDF extends Component {
+class ViewPDF extends Component {
   constructor(props) {
     super(props);
     this.state =
@@ -76,7 +76,7 @@ class ListPDF extends Component {
   }
 }
 
-export default ListPDF;
+export default ViewPDF;
 
 const styles = StyleSheet.create({
   container: {

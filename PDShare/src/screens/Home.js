@@ -1,27 +1,33 @@
 import React from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+
+import styles from '../styles/BasicStyles';
 
 
 export default function Home ({navigation}) {
     return (
-      <View>
-        <Text>Home Screen</Text>
-
-        <Button
-          title="Add a PDF"
-          color="red"
-          onPress={() => navigation.navigate('AddPDF')}
-        />
-        <Button
-          title="View PDF"
-          color="blue"
-          onPress={() => navigation.navigate('ListPDF')}
-        />
-        <Button
-        title="List All PDFs"
-        color="green"
-        onPress={() => navigation.navigate('ListAllPDF')}
-        />
+      <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <View style={styles.container}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            style={styles.buttonStyle}
+            onPress={() => navigation.navigate('AddPDF')}
+          >
+            <Text style={styles.buttonTextStyle}>
+              Add a PDF
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={() => navigation.navigate('ListAllPDF')}
+          >
+            <Text style={styles.buttonTextStyle}>
+              View All PDFs
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
+      </SafeAreaView>
     );
   }

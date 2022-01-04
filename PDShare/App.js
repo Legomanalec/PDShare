@@ -12,7 +12,7 @@ import Home from './src/screens/Home';
 
 // we will use these two screens later in the Navigator
 import AddPDF from './src/screens/AddPDF';
-import ListPDF from './src/screens/ListPDF';
+import ViewPDF from './src/screens/ViewPDF';
 import ListAllPDF from './src/screens/ListAllPDF';
 
 const Stack = createStackNavigator();
@@ -21,10 +21,9 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="AddPDF" component={AddPDF} />
-        <Stack.Screen name="ListPDF" component={ListPDF} />
-        <Stack.Screen name="ListAllPDF" component={ListAllPDF} />
+        <Stack.Screen name="Home" component={Home} options={{ title: 'Home' }}/>
+        <Stack.Screen name="AddPDF" component={AddPDF} options={{ title: 'Add a PDF' }}/>
+        <Stack.Screen name="ListAllPDF" component={ListAllPDF} options={{ title: 'View PDFs' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -14,6 +14,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import styles from '../styles/BasicStyles.js';
+
 // Firebase Storage to upload file
 import storage from "@react-native-firebase/storage";
 // To pick the file from local file system
@@ -66,10 +68,6 @@ const AddPDF = () => {
       const task = reference.putFile(
         filePath.uri.replace("file://", "")
       );
-      // You can do different operation with task
-      // task.pause();
-      // task.resume();
-      // task.cancel();
 
       task.on("state_changed", (taskSnapshot) => {
         setProcess(
@@ -102,13 +100,7 @@ const AddPDF = () => {
       ) : (
         <SafeAreaView style={{ flex: 1 }}>
           <View style={styles.container}>
-            <Text style={styles.titleText}>
-              Upload Input Text as File on FireStorage
-            </Text>
             <View style={styles.container}>
-              <Text>
-                Choose File and Upload to FireStorage
-              </Text>
               <Text>{process}</Text>
               <TouchableOpacity
                 activeOpacity={0.5}
@@ -116,11 +108,7 @@ const AddPDF = () => {
                 onPress={_chooseFile}
               >
                 <Text style={styles.buttonTextStyle}>
-                  Choose Image (Current Selected:{" "}
-                  {Object.keys(filePath).length == 0
-                    ? 0
-                    : 1}
-                  )
+                  Choose PDF
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -128,16 +116,10 @@ const AddPDF = () => {
                 onPress={_uploadFile}
               >
                 <Text style={styles.buttonTextStyle}>
-                  Upload File on FireStorage
+                  Upload to Server
                 </Text>
               </TouchableOpacity>
             </View>
-            <Text style={styles.footerHeading}>
-              React Native Firebase Cloud Storage
-            </Text>
-            <Text style={styles.footerText}>
-              www.aboutreact.com
-            </Text>
           </View>
         </SafeAreaView>
       )}
@@ -147,38 +129,3 @@ const AddPDF = () => {
 
 export default AddPDF;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    padding: 10,
-  },
-  titleText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-    padding: 20,
-  },
-  buttonStyle: {
-    alignItems: "center",
-    backgroundColor: "orange",
-    padding: 10,
-    width: 300,
-    marginTop: 16,
-  },
-  buttonTextStyle: {
-    color: "white",
-    fontWeight: "bold",
-  },
-  footerHeading: {
-    fontSize: 18,
-    textAlign: "center",
-    color: "grey",
-  },
-  footerText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "grey",
-  },
-});
