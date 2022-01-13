@@ -1,10 +1,6 @@
-// #3 Uploading Files and Images to Firebase Cloud Storage in React Native
-// https://aboutreact.com/react-native-firebase-cloud-storage/
 
-// Import React in our code
 import React, { useState } from "react";
 
-// Import all the components we are going to use
 import {
   SafeAreaView,
   StyleSheet,
@@ -16,23 +12,24 @@ import {
 
 import styles from '../styles/BasicStyles.js';
 
-// Firebase Storage to upload file
 import storage from "@react-native-firebase/storage";
-// To pick the file from local file system
 import DocumentPicker from "react-native-document-picker";
 
 const AddPDF = () => {
-  // State Defination
+  
+  // State Definations
   const [loading, setLoading] = useState(false);
   const [filePath, setFilePath] = useState({});
   const [process, setProcess] = useState("");
 
   const _chooseFile = async () => {
+
     // Opening Document Picker to select one file
     try {
       const fileDetails = await DocumentPicker.pickSingle({
+
         // Provide which type of file you want user to pick
-        type: [DocumentPicker.types.allFiles],
+        type: [DocumentPicker.types.pdf],
       });
       console.log(
         "fileDetails : " + JSON.stringify(fileDetails)
@@ -41,12 +38,7 @@ const AddPDF = () => {
       setFilePath(fileDetails);
     } catch (error) {
       setFilePath({});
-      // If user canceled the document selection
-      alert(
-        DocumentPicker.isCancel(error)
-          ? "Canceled"
-          : "Unknown Error: " + JSON.stringify(error)
-      );
+    
     }
   };
 
@@ -80,7 +72,7 @@ const AddPDF = () => {
         );
       });
       task.then(() => {
-        alert("Image uploaded to the bucket!");
+        alert("File Loaded!");
         setProcess("");
       });
       setFilePath({});

@@ -23,3 +23,11 @@ https://aboutreact.com/react-native-firebase-cloud-storage/
 https://stackoverflow.com/questions/45988103/rctbridge-required-dispatch-sync-to-load-rctdevloadingview-this-may-lead-to-dea
 
 https://github.com/rnmods/react-native-document-picker/issues/498
+
+https://digitallymani.medium.com/react-native-async-image-loading-with-firebase-storage-269465d72a7f
+
+https://medium.com/@jasminegump/passing-data-between-a-parent-and-child-in-react-deea2ec8e654
+
+https://github.com/chat-sdk/chat-sdk-ios/wiki/Understanding-the-Chat-SDK-data-schema
+
+https://github.com/rnmods/react-native-document-picker#documentpickertypes
