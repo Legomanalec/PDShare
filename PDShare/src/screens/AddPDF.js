@@ -37,8 +37,7 @@ const AddPDF = () => {
       // Setting the state for selected File
       setFilePath(fileDetails);
     } catch (error) {
-      setFilePath({});
-    
+      setFilePath({});   
     }
   };
 
