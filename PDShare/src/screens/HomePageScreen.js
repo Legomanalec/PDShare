@@ -4,7 +4,7 @@ import { Button, View, Text, TouchableOpacity, SafeAreaView } from 'react-native
 import styles from '../styles/BasicStyles';
 
 
-export default function HomePageScreen ({navigation}) {
+export default function HomePageScreen(props) {
     return (
       <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
