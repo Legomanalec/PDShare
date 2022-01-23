@@ -19,15 +19,6 @@ export default function HomePageScreen ({navigation}) {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            activeOpacity={0.5}
-            style={styles.buttonStyle}
-            onPress={() => navigation.navigate('ServerSelectScreen')}
-          >
-            <Text style={styles.buttonTextStyle}>
-              Join Server: SERVER 2
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => navigation.navigate('UploadToServerScreen')}
           >
