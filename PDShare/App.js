@@ -17,6 +17,7 @@ import HomePageScreen from './src/screens/HomePageScreen.js';
 
 import ServerSelectScreen from './src/screens/ServerSelectScreen.js';
 import SelectFileScreen from './src/screens/SelectFileScreen.js';
+import ViewSessionScreen from './src/screens/ViewSessionScreen.js';
 
 import UploadToServerScreen from './src/screens/UploadToServerScreen.js';
 
@@ -36,6 +37,8 @@ function App() {
 
         <Stack.Screen name="ServerSelectScreen" component={ServerSelectScreen} options={{ title: 'Server' }}/>
         <Stack.Screen name="SelectFileScreen" component={SelectFileScreen} options={{ title: 'Select a File' }}/>
+        <Stack.Screen name="ViewSessionScreen" component={ViewSessionScreen} options={{ title: 'Current Session' }}/>
+
 
         <Stack.Screen name="UploadToServerScreen" component={UploadToServerScreen} options={{ title: 'Upload to Server' }}/>
 
