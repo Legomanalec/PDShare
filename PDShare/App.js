@@ -8,12 +8,14 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from './src/screens/Home';
 
 // we will use these two screens later in the Navigator
-import AddPDF from './src/screens/AddPDF';
-import ViewPDF from './src/screens/ViewPDF';
-import ListAllPDF from './src/screens/ListAllPDF';
+
+
+import HomePageScreen from './src/screens/HomePageScreen.js';
+import ServerSelectScreen from './src/screens/ServerSelectScreen.js';
+import SelectFileScreen from './src/screens/SelectFileScreen.js';
+
 
 const Stack = createStackNavigator();
 function App() {
@@ -21,9 +23,10 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{ title: 'Home' }}/>
-        <Stack.Screen name="AddPDF" component={AddPDF} options={{ title: 'Add a PDF' }}/>
-        <Stack.Screen name="ListAllPDF" component={ListAllPDF} options={{ title: 'View PDFs' }}/>
+        <Stack.Screen name="HomePageScreen" component={HomePageScreen} options={{ title: 'Home' }}/>
+        <Stack.Screen name="ServerSelectScreen" component={ServerSelectScreen} options={{ title: 'Server' }}/>
+
+        <Stack.Screen name="SelectFileScreen" component={SelectFileScreen} options={{ title: 'Select a File' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

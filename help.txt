@@ -10,7 +10,7 @@ https://rnfirebase.io/
 
 https://stackoverflow.com/questions/27768420/gem-installation-error-you-have-to-install-development-tools-first
 
-https://medium.com/timeless/integrating-firebase-with-react-native-in-m1-mac-
+https://medium.com/timeless/integrating-firebase-with-react-native-in-m1-mac-11f2d94b9793
 
 https://stackoverflow.com/questions/29108172/how-do-i-fix-the-xcrun-unable-to-find-simctl-error
 
