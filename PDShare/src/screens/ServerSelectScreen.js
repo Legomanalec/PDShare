@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useCallback} from 'react';
+
 import { Button, View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+
 
 import styles from '../styles/BasicStyles';
 
 
 export default function ServerSelectScreen ({navigation}) {
+
     return (
+
+        
       <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <View style={styles.container}>
